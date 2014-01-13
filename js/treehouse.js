@@ -10,12 +10,11 @@ $(document).ready(function(){
 	    	var remaining = data.points.total;
 	    	var total = data.points.total;	 
 	        $.each(data.points, function(key, val) { 
-	            pointsArray.push(Math.round(val / data.points.total * 100)); // Convert to % and round to 0 decimal places
-	            pointsContainer += '<span id="' + key + '" data-value="' + (Math.round(val / data.points.total * 100)) + '"></span>'; // Add value to data attr
 	            if (key === "total") {
 	            		// If its the total amount do nothing
 	            	}
 	            else {
+	            	pointsContainer += '<span id="' + key + '" data-value="' + (Math.round(val / data.points.total * 100)) + '"></span>'; // Add value to data attr
 	            	remaining = remaining - val; // If not then remove to keep track of remaining points which are forum points
 	            }
 	        });
