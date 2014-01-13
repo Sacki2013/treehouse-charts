@@ -2,6 +2,9 @@ $(document).ready(function(){
 	var userName = "adamsackfield"; // Treehouse User Name
 	var c1 = "#458156"; // Primary Color
 	var c2 = "#494949"; // Secondary Color
+	var widthSize = "10"; // Sets the thickness of the charts
+	var radiusSize = 60; // Sets the radius of the chart
+	var exclude = []; // Add subjects to exclude as comma separated strings. Example ["html", "css", "javascript", "ruby", "ios", "business", "android, "php", "wordpress", "design", "dev tools", "forum"]
 	
 	$('#points').append('<img src="ajax-loader.gif">'); // Add loader.gif
 	// Function to loop JSON data and add spans with data-attributes used to store the values. 
@@ -35,12 +38,12 @@ $(document).ready(function(){
 	function chartInsert() {
 		// Loop through Array
 		$('span').each(function(){
-			if ($(this).attr('id') === "total") { // If its the total do nothing
+			if ($.inArray($(this).attr('id'), exclude) != -1) { // If its the total do nothing
 			} else { // Get attributes from dynamic content generated in fillarr
 			new Circle({
 		    	id: $(this).attr('id'),
-		    	width: "10",
-		    	radius: 60,
+		    	width: widthSize,
+		    	radius: radiusSize,
 		    	text: $(this).attr('id').toUpperCase(),
 		    	values: [{percent: $(this).data('value'), color: c1}, {percent: 100 - $(this).data('value'), color: c2}]
 		    });
