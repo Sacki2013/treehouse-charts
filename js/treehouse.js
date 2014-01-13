@@ -1,8 +1,9 @@
 $(document).ready(function(){
 	var userName = "adamsackfield"; // Treehouse User Name
-	var c1 = "#99C"; // Primary Color
-	var c2 = "#b7b7EB"; // Secondary Color
+	var c1 = "#458156"; // Primary Color
+	var c2 = "#494949"; // Secondary Color
 	
+	$('#points').append('<img src="ajax-loader.gif">'); // Add loader.gif
 	// Function to loop JSON data and add spans with data-attributes used to store the values. 
 	function fillarr()
 	{
@@ -29,6 +30,7 @@ $(document).ready(function(){
 	}
 
 	fillarr();
+
 	// Function to loop through the spans and extract the values so that circle.js can create the charts.
 	function chartInsert() {
 		// Loop through Array
@@ -44,9 +46,9 @@ $(document).ready(function(){
 		    });
 		}
 		});
-		
+		 $('img[src="ajax-loader.gif"]').hide(); // Remove loader.gif
 	}
-	 setTimeout(chartInsert, 5000) // Delay making charts until DOM elements have been created
+	 setTimeout(chartInsert, 3000) // Delay making charts until DOM elements have been created
 });
 
 
