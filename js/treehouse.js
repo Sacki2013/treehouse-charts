@@ -1,14 +1,15 @@
 $(document).ready(function(){
 	var userName = "adamsackfield"; // Treehouse User Name
-	var pointsArray = [];
-	var pointsContainer = [];
-	var total = null;
-
+	var c1 = "#99C"; // Primary Color
+	var c2 = "#b7b7EB"; // Secondary Color
+	
+	// Function to loop JSON data and add spans with data-attributes used to store the values. 
 	function fillarr()
 	{
 	    $.getJSON("http://teamtreehouse.com/" + userName + ".json", function(data) { // Get JSON data function
 	    	var remaining = data.points.total;
-	    	var total = data.points.total;	 
+	    	var total = data.points.total;	
+	    	var pointsContainer = []; 
 	        $.each(data.points, function(key, val) { 
 	            if (key === "total") {
 	            		// If its the total amount do nothing
@@ -28,7 +29,7 @@ $(document).ready(function(){
 	}
 
 	fillarr();
-	// Generates the charts using circle.js
+	// Function to loop through the spans and extract the values so that circle.js can create the charts.
 	function chartInsert() {
 		// Loop through Array
 		$('span').each(function(){
@@ -39,7 +40,7 @@ $(document).ready(function(){
 		    	width: "10",
 		    	radius: 60,
 		    	text: $(this).attr('id').toUpperCase(),
-		    	values: [{percent: $(this).data('value'), color: "#99C"}, {percent: 100 - $(this).data('value'), color: "#B7B7EB"}]
+		    	values: [{percent: $(this).data('value'), color: c1}, {percent: 100 - $(this).data('value'), color: c2}]
 		    });
 		}
 		});
