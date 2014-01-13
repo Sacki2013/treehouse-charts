@@ -7,7 +7,11 @@ Jquery function that pulls the JSON points data from your Team Treehouse profile
 1. Include jQuery (Included in js/lib (For Quick Testing))
 2. Include circle.min.js
 3. Include treehouse.js (Add your username to the VAR at the start)
-4. Include <pre><div id="points"></div></pre> in your page and your all set.
+4. Include 
+
+<pre><div id="points"></div></pre> 
+
+in your page and your all set.
 
 <h2>Browser support</h2>
 
