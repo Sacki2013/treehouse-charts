@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Single Example</title>
+        <title>Multiple Treehouse Charts on a Single Page</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <style>
@@ -21,17 +21,24 @@
     <body>
 
         <div class="container">
-            <h1>I have a total of <strong id="totalHeader"></strong> points on from Treehouse</h1>
-            <div id="points"></div>
-            <h4>Above is the break down of catagories where the points were earned</h4>
-            <h4>Call <code>.treehouseCharts("&lt;your username&gt;")</code> on any element to see yours.</h4>
+            <div id="andrew">
+                <h1>Andrew's points: <b class="total"></b></h1>
+                <div class="charts"></div>
+            </div>
+            <div id="jim">
+                <h1>Jim's points: <b class="total"></b></h1>
+                <div class="charts"></div>
+            </div>
         </div>
         
         <script src="js/lib/jquery.js"></script>
         <script src="js/lib/circle.min.js"></script>
         <script src="js/treehouse.js"></script>
         <script>
-            $("#points").treehouseCharts("adamsackfield", {totalSelector: "#totalHeader"});
+            $("#andrew .charts").treehouseCharts("chalkers", {totalSelector: "#andrew .total"});
+            $("#jim .charts").treehouseCharts("jim", 
+                {totalSelector: "#jim .total", c1: "#b4da55", c2: "#eeeeee", widthSize: "5", radiusSize: 75, exclude: ["html"]}
+            );
         </script>
 </body>
 </html>
